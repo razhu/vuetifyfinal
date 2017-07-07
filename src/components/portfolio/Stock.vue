@@ -1,5 +1,6 @@
 <template>
-    
+        <h2>Stock - Portfolio</h2>
+
 </template>
 <script>
     
