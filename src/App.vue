@@ -1,5 +1,5 @@
 <template>
-<v-app id="app" standalone>
+<v-app id="app">
     <v-navigation-drawer
       temporary
       v-model="drawer" 
