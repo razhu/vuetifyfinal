@@ -53,6 +53,15 @@
           </v-list-tile-content>
         </v-list-tile>
 
+                        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon>dashboard</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title><a href="#" @click.native="saveData">Save</a></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
       </v-list>
 
     </v-navigation-drawer>
@@ -74,6 +83,14 @@
 
 <script>
 import {mapGetters} from 'vuex'
+
+import axios from 'axios'
+// axios.defaults.baseURL = 'https://vuejs-stock-trader-54d6e.firebaseio.com/'
+// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+
+
 export default {
   name: 'app',
   data(){
@@ -88,7 +105,23 @@ export default {
   },
   computed: {
     ...mapGetters(['funds'])
-  }
+  },
+  methods:{
+    saveData(){
+      console.log("aquiiii")
+     const data = {
+       funds: this.$store.getters.funds ,
+       stockPortfolio: this.$store.getters.stockPortfolio ,
+       stocks: this.$store.getters.stocks ,
+     }
+    //  console.log("XXX ", baseURL)
+      axios.put('https://vuejs-stock-trader-54d6e.firebaseio.com/', {name: "juan"})
+      .then(function(response){
+        console.log('XXXX ', response)
+      })
+      .catch(error => console.log("YYY ", error))
+    }
+    }
 }
 </script>
 
