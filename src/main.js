@@ -10,6 +10,7 @@ Vue.use(Vuetify)
 Vue.filter('currency', value => '$' + value.toLocaleString())
 
 import 'vuetify/dist/vuetify.min.css'
+import 'animate.css'
 
 Vue.config.productionTip = false
 

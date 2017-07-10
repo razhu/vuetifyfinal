@@ -1,7 +1,7 @@
 <template>
 <div>
 <h2>Home</h2>
-<p>
+<p class="animated infinite bounce">
   Your funds: {{funds | currency}}
 </p>
 </div>
