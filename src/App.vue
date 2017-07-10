@@ -115,11 +115,11 @@ export default {
        stocks: this.$store.getters.stocks ,
      }
     //  console.log("XXX ", baseURL)
-      axios.put('https://vuejs-stock-trader-54d6e.firebaseio.com/', {name: "juan"})
-      .then(function(response){
-        console.log('XXXX ', response)
-      })
-      .catch(error => console.log("YYY ", error))
+      // axios.post('https://vuejs-stock-trader-54d6e.firebaseio.com/', {name: "juan"})
+      // .then(function(response){
+      //   console.log('XXXX ', response)
+      // })
+      // .catch(error => console.log("YYY ", error))
     }
     }
 }
