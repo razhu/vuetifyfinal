@@ -59,6 +59,7 @@
     <v-toolbar fixed class="green" dark>
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-toolbar-title>funds: {{funds | currency}}</v-toolbar-title>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -72,6 +73,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: 'app',
   data(){
@@ -80,6 +82,12 @@ export default {
         mini: false,
         right: null
     }
+  },
+  created(){
+    this.$store.dispatch('setStocks')
+  },
+  computed: {
+    ...mapGetters(['funds'])
   }
 }
 </script>

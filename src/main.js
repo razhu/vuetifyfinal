@@ -7,6 +7,7 @@ import router from './router'
 import store from './store/store'
 
 Vue.use(Vuetify)
+Vue.filter('currency', value => '$' + value.toLocaleString())
 
 import 'vuetify/dist/vuetify.min.css'
 

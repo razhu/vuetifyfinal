@@ -9,13 +9,13 @@
 <script>
     import Stock from './Stock.vue'
     export default {
-        data() {
-            return {
-                stocks: this.$store.state.stocks
-            }
-        },
         components: {
             Stock
+        },
+        computed: {
+            stocks(){
+                return this.$store.getters.stocks
+            }
         }
     }
 

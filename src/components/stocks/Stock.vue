@@ -14,7 +14,9 @@
               id="testing"
               v-model="quantity"
             ></v-text-field>
-          <v-btn class="primary green lighten-1 ma-2" :disabled="quantity <=0" @click.native="buyStock">Buy</v-btn>
+          <v-btn class="primary green lighten-1 ma-2" :disabled="insufficientFunds || quantity <=0" @click.native="buyStock">
+          {{insufficientFunds? 'Insufficient funds':'Buy'}}
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -30,15 +32,21 @@
         methods: {
             buyStock(){
                 const order = {
-                stockId: this.stock.id,
-                stockPrice: this.stock.price,
-                stockQuantity: this.quantity
+                    id: this.stock.id,
+                    price: this.stock.price,
+                    quantity: this.quantity
                 }
                 this.quantity = 0
+                this.$store.dispatch('buyStocks', order)
                 console.log(order)
+            },
+
+        },
+        computed: {
+             insufficientFunds(){
+                return this.stock.price*this.quantity > this.$store.getters.funds
             }
         }
-
     }
 </script>
 <style scoped>
