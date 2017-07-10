@@ -4,8 +4,8 @@
 <p class="animated infinite bounce">
   Your funds: {{funds | currency}}
 </p>
-<p @click="postSomething">
-  postearAlgo
+<p @click="postSomething2">
+  postearAlgoAhora si el bueno
 </p>
 
 </div>
@@ -13,7 +13,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import axios from 'axios'
+import {HTTP} from '../conf/http-common';
 export default {
   name: 'home',
   data () {
@@ -25,13 +25,15 @@ export default {
 
   },
   methods:{
-        postSomething(){
-          console.log("holla carjo aqui")
-            axios.post('https://vuejs-stock-trader-54d6e.firebaseio.com/', {name: "juan"})
+        postSomething2(){
+      console.log("holla carjo aqui espeo postear")
+      HTTP.post("",{name:'ramiro'})
       .then(function(response){
         console.log('XXXX ', response)
       })
-      .catch(error => console.log("YYY ", error))
+      .catch(function(error){
+        console.log('XXXX ', error)
+      })
     }
   }
 }
@@ -40,3 +42,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>
+
+    // postSomething(){
+    //   console.log("holla carjo aqui")
+    //   HTTP.get('users')
+    //   .then(function(response){
+    //     console.log('XXXX ', response.data)
+    //   })
+    //   .catch(error => console.log("YYY ", error))
+    // },
